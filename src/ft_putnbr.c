@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gfezzuog <gfezzuog@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 18:12:42 by dgioia            #+#    #+#             */
-/*   Updated: 2022/03/02 18:26:40 by dgioia           ###   ########.fr       */
+/*   Updated: 2022/03/03 16:52:23 by gfezzuog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_putchar(char c) {
+void	ft_write(char c) {
 	write(1, &c, 1);
 }
 
@@ -29,7 +29,27 @@ int	ft_putnbr(int nbr)
 		ft_putnbr(nbr % 10);
 	}
 	else
-		ft_putchar(nbr +48);
-
+		ft_write(nbr +48);
 	return (0);
+}
+
+int ft_countnbr(int nbr)
+{
+	int count;
+	int	n;
+	count = 0;
+	n = nbr;
+	if (n < 0)
+	{
+		n *= -1;
+		count++;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		count++;
+	}
+	count++;
+	ft_putnbr(nbr);
+	return(count);
 }

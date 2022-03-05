@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gfezzuog <gfezzuog@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:45:02 by dgioia            #+#    #+#             */
-/*   Updated: 2022/03/02 18:29:33 by dgioia           ###   ########.fr       */
+/*   Updated: 2022/03/03 16:51:42 by gfezzuog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ int	ft_printf(const	char *string, ...)
 	
 	while(string[i] != '\0')
 	{
-		if (string[i] == 'c' || string[i] == 's')
+		if (string[i] == 's')
 			count += ft_putstr(va_arg(args, char *));
-		//else if (string[i] == 's')
+		else if (string[i] == 'c')
+			count += ft_putchar(va_arg(args, char *));
 		//else if (string[i] == 'p')
 		else if (string[i] == 'd' || string[i] == 'i')
-			count += ft_putnbr(va_arg(args, int));
+			count += ft_countnbr(va_arg(args, int));
 			
 		//else if (string[i] == 'i')
 		//else if (string[i] == 'u')
@@ -43,10 +44,15 @@ int	ft_printf(const	char *string, ...)
 		i++;
 	}
 	
-	return (0);
+	return (count);
 }
 
 int main(){
 	//printf("%s", "ciao");
-	ft_printf("%i", 1.1);
+	//ft_printf("%i", 1.1);
+
+	//per controllare il return del printf
+	//ft_printf("%c", "ciao");
+	int num = ft_printf("%d", +12345);
+	ft_printf("%d", num);
 }
