@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 18:01:27 by dgioia            #+#    #+#             */
-/*   Updated: 2022/04/01 18:46:27 by dgioia           ###   ########.fr       */
+/*   Created: 2022/03/02 18:12:42 by dgioia            #+#    #+#             */
+/*   Updated: 2022/04/01 18:10:39 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_putstr(const char *str)
+void	ft_putunbr(unsigned int nbr)
 {
-	int	count;
-
-	count = 0;
-	if (!str)
+	if (nbr > 9)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		ft_putunbr(nbr / 10);
+		ft_putunbr(nbr % 10);
 	}
-	while (str[count])
+	if (nbr <= 9)
+		ft_write(48 + nbr);
+}
+
+int ft_countunbr(unsigned int nbr)
+{
+	int count;
+	unsigned int	n;
+	count = 0;
+	n = nbr;
+	while (n > 9)
 	{
-		write(1, &str[count], 1);
+		n = n / 10;
 		count++;
 	}
-
-	return (count);
+	count++;
+	ft_putunbr(nbr);
+	return(count);
 }

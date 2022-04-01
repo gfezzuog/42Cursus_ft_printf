@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gfezzuog <gfezzuog@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:53:02 by dgioia            #+#    #+#             */
-/*   Updated: 2022/03/03 16:52:22 by gfezzuog         ###   ########.fr       */
+/*   Updated: 2022/04/01 19:10:59 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdint.h>
 
 int				ft_printf(const char *str, ...);
-int             ft_putchar(char *c);
-int             ft_putstr(const char *str);
+int				ft_putchar(char *c);
+int				ft_putstr(const char *str);
 int				ft_countnbr(int nbr);
+int				ft_print_ptr(unsigned long long ptr);
+int				ft_printhex(unsigned int nbr, const char str);
+void			ft_write(char c);
+void			ft_putunbr(unsigned int nbr);
+int				ft_countunbr(unsigned int nbr);
 
 #endif
