@@ -6,7 +6,7 @@
 /*   By: dgioia <dgioia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 18:12:42 by dgioia            #+#    #+#             */
-/*   Updated: 2022/04/01 17:32:17 by dgioia           ###   ########.fr       */
+/*   Updated: 2022/04/05 16:55:06 by dgioia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,18 @@ void	ft_putnbr(int nbr)
 	}
 }
 
-int ft_countnbr(int nbr)
+int	ft_countnbr(int nbr)
 {
-	int count;
+	int	count;
 	int	n;
+
 	count = 0;
 	n = nbr;
 	if (n < 0)
 	{
 		if (n == -2147483648)
 		{
-			n = n/10;
+			n = n / 10;
 			count++;
 		}
 		n *= -1;
@@ -57,5 +58,5 @@ int ft_countnbr(int nbr)
 	}
 	count++;
 	ft_putnbr(nbr);
-	return(count);
+	return (count);
 }
